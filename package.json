@@ -1,0 +1,19 @@
+{
+  "name": "find-a-movie-to-watch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon --watch './**/*.go' --signal SIGTERM --exec 'go' run server.go"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randallwstanford/find-a-movie-to-watch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randallwstanford/find-a-movie-to-watch/issues"
+  },
+  "homepage": "https://github.com/randallwstanford/find-a-movie-to-watch#readme"
+}
