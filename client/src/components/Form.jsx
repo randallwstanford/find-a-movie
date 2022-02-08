@@ -22,17 +22,15 @@ function Form() {
     setMovie(movieInput);
 
     axios.request(options)
-      .then((response) => {
-        console.log(response.data.movie_results);
-        setMoviesData(response.data.movie_results);
-      })
+      .then((response) => setMoviesData(response.data.movie_results))
       .catch((error) => console.error(error));
 
     e.target.movieTitle.value = '';
   };
 
   const handleClick = () => {
-    options.params = { type: 'get-random-movies', page: '1' };
+    const randomNumber = Math.floor(Math.random() * 10);
+    options.params = { type: 'get-random-movies', page: randomNumber };
 
     axios.request(options)
       .then((response) => setRandomMovies(response.data.movie_results))
@@ -40,14 +38,12 @@ function Form() {
   };
 
   const renderDirectors = (directors) => {
-    console.log(directors);
     return directors !== null
       ? directors.map((director, index) => <span key={index}>{director} / </span>)
       : null;
   };
 
   const renderRandomCards = (movies) => {
-    console.log(movies);
     return (
       movies
         ? movies.map((movieData, index) => (
@@ -66,7 +62,6 @@ function Form() {
   };
 
   const renderCards = (movies) => {
-    console.log(movies);
     return (
       movies
         ? movies.map((movieData, index) => (
