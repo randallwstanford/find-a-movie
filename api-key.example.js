@@ -1,1 +1,1 @@
-module.exports.apiKey = ''
+module.exports.apiKey = '';
