@@ -2,7 +2,9 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div>header</div>
+    <div className="header">
+      Find a movie or TV show
+    </div>
   )
 }
 
