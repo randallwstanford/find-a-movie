@@ -7,6 +7,7 @@
 * [Screenshots](#screenshots)
 
 ## About
+- In progress :)
 - This project was made to find movies to watch! 
 - Shuffle, search by genre, pick a random movie, etc.
 - I created this app to learn how to make a React app served on Golang.
