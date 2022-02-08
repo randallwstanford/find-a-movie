@@ -1,11 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-function App() {
+// Components
+import Header from './components/Header'
+import Form from './components/Form'
+
+const App = () => {
   return (
-    <div>
-      <div>hello werld</div>
+    <div className="container">
+      <Header />
+      <Form />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
