@@ -86,10 +86,10 @@ function Form() {
         <input name="movieTitle" placeholder="Enter movie title here" />
         <button type="submit">Search Movie</button>
       </form>
-      <div>Movies/Shows: {movie}</div>
+      <div>Movies/Shows: {moviesData.length} results found.{movie}</div>
       <div className="movies">{renderCards(moviesData)}</div>
       <button type="button" onClick={handleClick}>Random Movie</button>
-      <div>Your random movies/shows:</div>
+      <div>Your random movies/shows: {randomMovies.length} results found.</div>
       <div className="randomMovies">
         {renderRandomCards(randomMovies)}
       </div>
