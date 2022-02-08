@@ -1,41 +1,54 @@
+* {
+  --font-color: #A7BC4E;
+  --light: #768532;
+  --dark: #4F5922;
+}
+
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: var(--dark);
   overflow: hidden;
+  color: var(--font-color);
 }
 
 .container {
   margin: 1rem;
-  height: 90%;
-  border: 1px dashed blue;
+  height: 95%;
   text-align: center;
 }
 
 .header {
   margin: 1rem;
-  border: 1px dashed black;
 }
 
 .form {
   margin: 1rem;
-  height: 50%;
-  border: 1px dashed green;
+  height: 90%;
 }
 
 .movies {
   overflow: auto;
-  height: 45%;
+  height: 42.5%;
+  background-color: var(--light);
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .randomMovies {
+  margin-top: 1rem;
   overflow: auto;
-  height: 45%;
+  height: 42.5%;
+  background-color: var(--light);
+  color: white;
 }
 
 .movieCard {
   border: 1px solid black;
-  margin: 1rem;
+  margin: .5rem;
   float: right;
+  height: 40%;
   width: 47.5%;
 }
