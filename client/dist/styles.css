@@ -1,0 +1,41 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  margin: 1rem;
+  height: 90%;
+  border: 1px dashed blue;
+  text-align: center;
+}
+
+.header {
+  margin: 1rem;
+  border: 1px dashed black;
+}
+
+.form {
+  margin: 1rem;
+  height: 50%;
+  border: 1px dashed green;
+}
+
+.movies {
+  overflow: auto;
+  height: 45%;
+}
+
+.randomMovies {
+  overflow: auto;
+  height: 45%;
+}
+
+.movieCard {
+  border: 1px solid black;
+  margin: 1rem;
+  float: right;
+  width: 47.5%;
+}
