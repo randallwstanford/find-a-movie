@@ -1,69 +1,84 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import { apiKey } from '../../../api-key.js'
+/* eslint-disable no-console */
+import React, { useState } from 'react';
+import axios from 'axios';
+import { apiKey } from '../../../api-key';
 
-const Form = () => {
-  const [movie, setMovie] = useState('')
-  const [moviesData, setMoviesData] = useState('')
-  const [randomMovies, setRandomMovies] = useState('')
+function Form() {
+  const [movie, setMovie] = useState('');
+  const [moviesData, setMoviesData] = useState('');
+  const [randomMovies, setRandomMovies] = useState('');
+
+  const options = {
+    method: 'GET',
+    url: 'https://movies-tvshows-data-imdb.p.rapidapi.com/',
+    headers: { 'x-rapidapi-host': 'movies-tvshows-data-imdb.p.rapidapi.com', 'x-rapidapi-key': apiKey },
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const movieInput = e.target.movieTitle.value
-    const options = {
+    e.preventDefault();
+    const movieInput = e.target.movieTitle.value;
+    options.params = { type: 'get-movies-by-title', title: movieInput };
 
-      method: 'GET',
-      url: 'https://movies-tvshows-data-imdb.p.rapidapi.com/',
-      params: { type: 'get-movies-by-title', title: movieInput },
-      headers: {
-        'x-rapidapi-host': 'movies-tvshows-data-imdb.p.rapidapi.com',
-        'x-rapidapi-key': apiKey
-      }
-    }
-
-    setMovie(movieInput)
+    setMovie(movieInput);
 
     axios.request(options)
       .then((response) => {
-        console.log(response.data.movie_results)
-        setMoviesData(response.data.movie_results)
+        console.log(response.data.movie_results);
+        setMoviesData(response.data.movie_results);
       })
-      .catch((error) => console.error(error))
+      .catch((error) => console.error(error));
 
-    e.target.movieTitle.value = ''
-  }
+    e.target.movieTitle.value = '';
+  };
 
   const handleClick = () => {
-    const options = {
-      method: 'GET',
-      url: 'https://movies-tvshows-data-imdb.p.rapidapi.com/',
-      params: { type: 'get-random-movies', page: '1' },
-      headers: {
-        'x-rapidapi-host': 'movies-tvshows-data-imdb.p.rapidapi.com',
-        'x-rapidapi-key': 'c961afde0bmsh919ccbd34b5ebb3p13f56ajsnc1d975d8de37'
-      }
-    }
+    options.params = { type: 'get-random-movies', page: '1' };
 
     axios.request(options)
-      .then((response) => {
-        console.log(response.data.movie_results)
-        setRandomMovies(response.data.movie_results)
-      })
-      .catch((error) => console.error(error))
-  }
+      .then((response) => setRandomMovies(response.data.movie_results))
+      .catch((error) => console.error(error));
+  };
 
-  const renderCards = (movies) => {
+  const renderDirectors = (directors) => {
+    console.log(directors);
+    return directors !== null
+      ? directors.map((director, index) => <span key={index}>{director} / </span>)
+      : null;
+  };
+
+  const renderRandomCards = (movies) => {
+    console.log(movies);
     return (
       movies
-        ? movies.map((movie, index) => (
-            <div key={index} className="movieCard">
-              <div>Movie Title: {movie.title}</div>
-              <div>Movie Year: {movie.year}</div>
-            </div>
+        ? movies.map((movieData, index) => (
+          <div key={index} className="movieCard">
+            <div>Title: {movieData.title}</div>
+            <div>Year: {movieData.year}</div>
+            <div>Score: {movieData.imdb_rating}</div>
+            <div>Directors: {renderDirectors(movieData.directors)}</div>
+            {(movieData.rated !== null || movieData.rated !== 'NOT RATED' || movieData.rated !== 'N/A')
+              ? <div>Rating: {movieData.rated}</div>
+              : <div>Rating: Not rated</div>}
+          </div>
         ))
         : null
-    )
-  }
+    );
+  };
+
+  const renderCards = (movies) => {
+    console.log(movies);
+    return (
+      movies
+        ? movies.map((movieData, index) => (
+          <div key={index} className="movieCard">
+            <div>Title: {movieData.title}</div>
+            <div>Year: {movieData.year}</div>
+            <div>IMDB imdb: {movieData.imdb_id}</div>
+          </div>
+        ))
+        : null
+    );
+  };
 
   return (
     <div className="form">
@@ -71,19 +86,15 @@ const Form = () => {
         <input name="movieTitle" placeholder="Enter movie title here" />
         <button type="submit">Search Movie</button>
       </form>
-      <div>Movie/Show: {movie}</div>
-      <div className="movies">
-        {renderCards(moviesData)}
-      </div>
-      <div className="randomMovie">
-        <button onClick={handleClick}>Random Movie</button>
-        <div>Your random movie or show:</div>
-        <div className="randomMovies">
-          {renderCards(randomMovies)}
-        </div>
+      <div>Movies/Shows: {movie}</div>
+      <div className="movies">{renderCards(moviesData)}</div>
+      <button type="button" onClick={handleClick}>Random Movie</button>
+      <div>Your random movies/shows:</div>
+      <div className="randomMovies">
+        {renderRandomCards(randomMovies)}
       </div>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;
