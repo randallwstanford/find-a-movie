@@ -3,7 +3,7 @@ import React from 'react';
 function Header() {
   return (
     <h1 className="header">
-      Find a movie or TV show
+      Find a Movie or TV show!
     </h1>
   );
 }
