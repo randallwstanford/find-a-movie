@@ -33,4 +33,5 @@ $ go run main.go
 - And you're all set! 
 
 ## Screenshots
+~coming soon~
 ![hooray-dance](https://user-images.githubusercontent.com/83252804/152718895-ee715f4c-973b-4f31-818d-e7acc3981ff8.gif)
