@@ -21,5 +21,7 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'arrow-body-style': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'no-console': 'off',
+    'no-param-reassign': 'off',
   },
 };
