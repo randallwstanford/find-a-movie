@@ -2,10 +2,9 @@
   "name": "find-a-movie-to-watch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "proxy": "http://localhost:5000",
+  "main": "webpack.config.js",
   "scripts": {
-    "server": "nodemon --watch './**/*.go' --exec 'go' run server.go",
+    "server": "nodemon server.js",
     "build": "webpack --mode development --watch"
   },
   "repository": {
@@ -24,6 +23,8 @@
     "axios": "^0.25.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
+    "express": "^4.17.2",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack": "^5.68.0"
