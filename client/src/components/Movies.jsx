@@ -8,13 +8,12 @@ function Movies({ options }) {
   const [moviesData, setMoviesData] = useState('');
 
   const handleSubmit = (e) => {
+    const movieInput = e.target.movieTitle.value;
     e.preventDefault();
 
-    const movieInput = e.target.movieTitle.value;
+    setMovie(movieInput);
 
     options.params = { type: 'get-movies-by-title', title: movieInput };
-
-    setMovie(movieInput);
 
     axios.request(options)
       .then((response) => setMoviesData(response.data.movie_results))
