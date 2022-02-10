@@ -32,11 +32,10 @@ html, body, #root {
 .moviesContainer {
   padding-top: 1rem;
   height: 100%;
-  width: 49.9%;
+  width: 49.5%;
   overflow: auto;
   float: right;
   background-color: var(--secondary);
-  padding-top: 1rem;
   float: right;
   color: var(--tertiary)
 }
@@ -44,9 +43,8 @@ html, body, #root {
 .randomMoviesContainer {
   padding-top: 1rem;
   height: 100%;
-  width: 49.9%;
+  width: 49.5%;
   background-color: var(--secondary);
-  padding-top: 1rem;
   overflow: auto;
   color: var(--tertiary);
 }
@@ -55,10 +53,28 @@ a {
   color: black;
 }
 
+button {
+  background-color: var(--primary);
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+input {
+  padding: 14px 32px;
+  font-size: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 20px 1px;
+}
 
 .movieCard {
   border-top: 1px solid black;
-  border-bottom: 1px solid black;
   margin: .5rem;
   padding: .5rem;
 }
@@ -68,16 +84,15 @@ a {
   padding-top: .5rem
 }
 
-.moviesContainer::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+.moviesContainer::-webkit-scrollbar, .randomMoviesContainer::-webkit-scrollbar {
+  width: 12px;
 }
 
-.moviesContainer::-webkit-scrollbar-track {
-  background: var(--primary);        /* color of the tracking area */
+.moviesContainer::-webkit-scrollbar-track, .randomMoviesContainer::-webkit-scrollbar-track {
+  background: var(--primary);
 }
 
-.moviesContainer::-webkit-scrollbar-thumb {
-  background-color: var(--secondary);    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  /* border: 3px solid orange;  creates padding around scroll thumb */
+.moviesContainer::-webkit-scrollbar-thumb, .randomMoviesContainer::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border: 1px solid black;
 }
