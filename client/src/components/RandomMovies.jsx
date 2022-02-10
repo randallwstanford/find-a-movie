@@ -16,13 +16,15 @@ function RandomMovies({ options }) {
   };
 
   const renderDirectors = (directors) => {
+    // console.log(directors.slice(0, 3).join(' / '));
     return directors !== null
-      ? directors.map((director, index) => <span key={index}>{director} / </span>)
+      ? directors.slice(0, 3).join(' / ')
       : null;
   };
 
+  const renderRating = (rated) => (rated !== null ? rated : 'Not rated');
+
   const renderRandomCards = (movies) => {
-    console.log(movies);
     return (
       movies
         ? movies.map((movieData, index) => (
@@ -32,17 +34,14 @@ function RandomMovies({ options }) {
               <div>Year: {movieData.year}</div>
               <div>Score: {movieData.imdb_rating}</div>
               <div>Directors: {renderDirectors(movieData.directors)}</div>
-              {
-            movieData.rated !== null
-              ? <div>Rating: {movieData.rated}</div>
-              : <div>Rating: Not rated</div>
-            }
+              <div>Rating: {renderRating(movieData.rated)}</div>
             </a>
           </div>
         ))
         : null
     );
   };
+
   return (
     <div className="randomMoviesContainer">
       <button type="button" onClick={handleClick}>Random Movies/Shows</button>
