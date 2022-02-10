@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -21,19 +22,23 @@ function Movies({ options }) {
 
     e.target.movieTitle.value = '';
   };
+
   const renderCards = (movies) => {
     return (
       movies
         ? movies.map((movieData, index) => (
           <div key={index} className="movieCard">
-            <div>Title: {movieData.title}</div>
-            <div>Year: {movieData.year}</div>
-            <div>IMDB imdb: {movieData.imdb_id}</div>
+            <a target="_blank" href={`https://www.imdb.com/title/${movieData.imdb_id}/`} rel="noreferrer">
+              <div>Title: {movieData.title}</div>
+              <div>Year: {movieData.year}</div>
+              <div>IMDB imdb: {movieData.imdb_id}</div>
+            </a>
           </div>
         ))
         : null
     );
   };
+
   return (
     <div className="moviesContainer">
       <form onSubmit={handleSubmit}>

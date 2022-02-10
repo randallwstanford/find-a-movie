@@ -22,19 +22,22 @@ function RandomMovies({ options }) {
   };
 
   const renderRandomCards = (movies) => {
+    console.log(movies);
     return (
       movies
         ? movies.map((movieData, index) => (
           <div key={index} className="movieCard">
-            <div>Title: {movieData.title}</div>
-            <div>Year: {movieData.year}</div>
-            <div>Score: {movieData.imdb_rating}</div>
-            <div>Directors: {renderDirectors(movieData.directors)}</div>
-            {
+            <a target="_blank" href={`https://www.imdb.com/title/${movieData.imdb_id}/`} rel="noreferrer">
+              <div>Title: {movieData.title}</div>
+              <div>Year: {movieData.year}</div>
+              <div>Score: {movieData.imdb_rating}</div>
+              <div>Directors: {renderDirectors(movieData.directors)}</div>
+              {
             movieData.rated !== null
               ? <div>Rating: {movieData.rated}</div>
               : <div>Rating: Not rated</div>
             }
+            </a>
           </div>
         ))
         : null
