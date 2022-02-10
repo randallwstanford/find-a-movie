@@ -1,6 +1,6 @@
 * {
   --primary: #ACB9C3;
-  --secondary: #7C90A0;
+  --secondary: #748a9c;
   --tertiary: #000;
 }
 
@@ -32,7 +32,7 @@ html, body, #root {
 .moviesContainer {
   padding-top: 1rem;
   height: 100%;
-  width: 50%;
+  width: 49.9%;
   overflow: auto;
   float: right;
   background-color: var(--secondary);
@@ -44,16 +44,21 @@ html, body, #root {
 .randomMoviesContainer {
   padding-top: 1rem;
   height: 100%;
-  width: 50%;
+  width: 49.9%;
   background-color: var(--secondary);
   padding-top: 1rem;
   overflow: auto;
   color: var(--tertiary);
 }
 
+a {
+  color: black;
+}
+
 
 .movieCard {
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   margin: .5rem;
   padding: .5rem;
 }
@@ -61,4 +66,18 @@ html, body, #root {
 .results {
   color: var(--tertiary);
   padding-top: .5rem
+}
+
+.moviesContainer::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.moviesContainer::-webkit-scrollbar-track {
+  background: var(--primary);        /* color of the tracking area */
+}
+
+.moviesContainer::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  /* border: 3px solid orange;  creates padding around scroll thumb */
 }
