@@ -23,5 +23,6 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'no-console': 'off',
     'no-param-reassign': 'off',
+    'react/function-component-definition': 'off',
   },
 };
