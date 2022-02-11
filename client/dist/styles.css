@@ -59,6 +59,7 @@ button {
   color: black;
   padding: 15px 32px;
   text-align: center;
+  margin: .1rem;
   text-decoration: none;
   font-size: 1rem;
 }
@@ -66,6 +67,7 @@ button {
 input {
   padding: 14px 32px;
   font-size: 1rem;
+  text-align: center;
 }
 
 button:hover {
