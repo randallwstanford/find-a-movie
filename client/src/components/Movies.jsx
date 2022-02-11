@@ -1,55 +1,39 @@
-/* eslint-disable react/jsx-boolean-value */
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import renderCards from './utils';
 
-function Movies({ options }) {
-  const [movie, setMovie] = useState('');
-  const [moviesData, setMoviesData] = useState('');
+const Movies = ({ options }) => {
+  const [movies, setMovies] = useState('');
 
-  const handleSubmit = (e) => {
-    const movieInput = e.target.movieTitle.value;
-    e.preventDefault();
-
-    setMovie(movieInput);
-
-    options.params = { type: 'get-movies-by-title', title: movieInput };
+  const handleRandom = () => {
+    const randomNumber = Math.floor(Math.random() * 10);
+    options.params = { type: 'get-random-movies', page: randomNumber };
 
     axios.request(options)
-      .then((response) => setMoviesData(response.data.movie_results))
+      .then((response) => setMovies(response.data.movie_results))
       .catch((error) => console.error(error));
-
-    e.target.movieTitle.value = '';
   };
 
-  const renderCards = (movies) => {
-    return (
-      movies
-        ? movies.map((movieData, index) => (
-          <div key={index} className="movieCard">
-            <a target="_blank" href={`https://www.imdb.com/title/${movieData.imdb_id}/`} rel="noreferrer">
-              <div>Title: {movieData.title}</div>
-              <div>Year: {movieData.year}</div>
-              <div>IMDB imdb: {movieData.imdb_id}</div>
-            </a>
-          </div>
-        ))
-        : null
-    );
+  const handlePopular = () => {
+    const currentYear = new Date().getFullYear();
+    options.params = { type: 'get-popular-movies', page: '1', year: currentYear };
+
+    axios.request(options)
+      .then((response) => setMovies(response.data.movie_results))
+      .catch((error) => console.error(error));
   };
 
   return (
-    <div className="moviesContainer">
-      <form onSubmit={handleSubmit}>
-        <input name="movieTitle" placeholder="Enter movie title here" />
-        <button type="submit">Search Movie/Show</button>
-      </form>
-      <div className="results">Movies/Shows for: {movie}</div>
-      <div>{moviesData.length} results found.</div>
-      {renderCards(moviesData)}
+    <div className="randomMoviesContainer">
+      <button type="button" onClick={handleRandom}>Random Movies</button>
+      <button type="button" onClick={handlePopular}>Popular Movies</button>
+      <div className="results">{movies.length} results found.</div>
+      <div>Results: </div>
+      {renderCards(movies)}
     </div>
   );
-}
+};
 
 Movies.propTypes = {
   options: PropTypes.shape({
