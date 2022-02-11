@@ -3,10 +3,10 @@ import React from 'react';
 import { apiKey } from '../../../api-key';
 
 // Components
-import RandomMovies from './RandomMovies';
 import Movies from './Movies';
+import MoviesSearch from './MoviesSearch';
 
-function Form() {
+const Form = () => {
   const options = {
     method: 'GET',
     url: 'https://movies-tvshows-data-imdb.p.rapidapi.com/',
@@ -15,10 +15,10 @@ function Form() {
 
   return (
     <div className="form">
+      <MoviesSearch options={options} />
       <Movies options={options} />
-      <RandomMovies options={options} />
     </div>
   );
-}
+};
 
 export default Form;
