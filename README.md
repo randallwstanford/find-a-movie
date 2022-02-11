@@ -7,14 +7,17 @@
 * [Screenshots](#screenshots)
 
 ## About
-- In progress :)
-- This project was made to find movies to watch! 
-- Shuffle, search by genre, pick a random movie, etc.
-- I created this app to learn how to make a React app served on Golang.
+- 👀 This project was made to find movies to watch! 
+- 🔎 Search movie by title, by random, and or by popular.
+- 🧠 I created this app to learn how to make a React app served on Golang.
+- ✨ I wanted to better style it but I hit the API limit for the month, so ill wait until the month is over to come back and make it prettier!
 
 ## Technologies
 - React - version 17.0.2
 - Golang - version 1.17.6
+- Webpack - version 5.68.0
+- Axios - version 0.25.0
+- [Movies/TVShows Data (IMDB) API](https://rapidapi.com/amrelrafie/api/movies-tvshows-data-imdb/details?utm_source=api-quota-85&utm_medium=email&utm_campaign=Movies%2FTVShows%20Data%20%28IMDB%29)
 
 ## Setup
 - Once cloned open up your terminal.
@@ -33,5 +36,4 @@ $ go run main.go
 - And you're all set! 
 
 ## Screenshots
-### ~ coming soon ~
-![hooray-dance](https://user-images.githubusercontent.com/83252804/152718895-ee715f4c-973b-4f31-818d-e7acc3981ff8.gif)
+![find-a-movie-screenshot](https://user-images.githubusercontent.com/83252804/153654406-a63387c9-7924-4537-8116-1acbf7df860e.png)
